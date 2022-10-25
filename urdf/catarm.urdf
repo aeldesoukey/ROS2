@@ -1,0 +1,576 @@
+<?xml version="1.0"?>
+<robot name="catarm">
+
+<link name="world"/>
+  <joint name="fixed" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+	<link name="base_link">
+		<inertial>
+			<origin xyz="0.017443 0.020544 0.054214" rpy="0 0 0" />
+			<mass value="4.1667" />
+			<inertia ixx="0.050131" ixy="0.00093856" ixz="0.00042752" iyy="0.051129" iyz="5.4952E-05" izz="0.085885" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/base_link.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.52941 0.54902 0.54902 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/base_link.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<link name="link_1">
+		<inertial>
+			<origin xyz="-0.03437 -0.0063603 0.03565" rpy="0 0 0" />
+			<mass value="0.98221" />
+			<inertia ixx="0.0033593" ixy="-3.1313E-05" ixz="-0.00035203" iyy="0.0038621" iyz="3.4669E-05" izz="0.0039384" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_1.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.65098 0.61961 0.58824 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_1.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_1" type="revolute">
+		<origin xyz="0 0 0.12265" rpy="3.4695E-15 0 0" />
+		<parent link="base_link" />
+		<child link="link_1" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3" upper="3" effort="0.8" velocity="1" />
+	</joint>
+	<link name="link_2">
+		<inertial>
+			<origin xyz="0.111357272853953 -0.00161208028093563 -8.05809154439258E-05" rpy="0 0 0" />
+			<mass value="0.974805147886848" />
+			<inertia ixx="0.00307136585243248" ixy="8.77977695846416E-05" ixz="1.41535219449744E-05" iyy="0.0094161193535277" iyz="-2.06207252495148E-07" izz="0.00703323476076372" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_2.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_2.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_2" type="revolute">
+		<origin xyz="0.01 -0.008 0.12" rpy="1.5708 -1.5708 0" />
+		<parent link="link_1" />
+		<child link="link_2" />
+		<axis xyz="0 0 1" />
+		<limit lower="-1.5" upper="1.5" effort="0.8" velocity="1" />
+	</joint>
+	<link name="link_3">
+		<inertial>
+			<origin xyz="0.0158650381502784 8.20056705874705E-08 -1.3912482277334E-15" rpy="0 0 0" />
+			<mass value="0.223148043155163" />
+			<inertia ixx="0.000232923771644071" ixy="-1.22869577964899E-10" ixz="-8.88354787940264E-14" iyy="0.000307334502251285" iyz="1.7263286770416E-14" izz="0.000247386513662684" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_3.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_3.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_3" type="revolute">
+		<origin xyz="0.29997 -0.0042684 0" rpy="-2.063E-17 -1.4291E-15 -1.5708" />
+		<parent link="link_2" />
+		<child link="link_3" />
+		<axis xyz="0 0 1" />
+		<limit lower="0" upper="3.14" effort="0.6" velocity="1" />
+	</joint>
+	<link name="link_4">
+		<inertial>
+			<origin xyz="0.00277141909993411 -1.23586457565494E-05 -0.135981561464636" rpy="0 0 0" />
+			<mass value="0.368023175735054" />
+			<inertia ixx="0.00221163331930652" ixy="-1.26051569717221E-08" ixz="-1.86537774701632E-05" iyy="0.00236403908416395" iyz="-3.71671794609191E-07" izz="0.000326749487420291" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_4.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="1 1 1 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_4.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_4" type="revolute">
+		<origin xyz="0.029737 0 0" rpy="-1.5708 1.5708 1.5708" />
+		<parent link="link_3" />
+		<child link="link_4" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3" upper="3" effort="0.6" velocity="1" />
+	</joint>
+	<link name="link_5">
+		<inertial>
+			<origin xyz="0.0343089708193019 -2.16589071344621E-05 1.77184778680228E-05" rpy="0 0 0" />
+			<mass value="0.129795818491803" />
+			<inertia ixx="5.76291351352184E-05" ixy="-7.90001478023421E-08" ixz="-2.42800387599526E-08" iyy="0.000111658715159219" iyz="-3.02054651782493E-10" izz="9.24563756346158E-05" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_5.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_5.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_5" type="revolute">
+		<origin xyz="0 0 -0.29674" rpy="1.5708 0 1.5708" />
+		<parent link="link_4" />
+		<child link="link_5" />
+		<axis xyz="0 0 1" />
+		<limit lower="-3.14" upper="0" effort="0.9" velocity="1" />
+	</joint>
+	<link name="link_6">
+		<inertial>
+			<origin xyz="0.00022026 -0.00013666 0.066945" rpy="0 0 0" />
+			<mass value="0.19545" />
+			<inertia ixx="0.00054019" ixy="-1.0981E-06" ixz="-2.214E-07" iyy="0.00054165" iyz="1.4724E-06" izz="0.00014479" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_6.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79608 0.82353 0.93725 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/link_6.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="joint_6" type="revolute">
+		<origin xyz="0.085737 0 0" rpy="0 1.5708 0" />
+		<parent link="link_5" />
+		<child link="link_6" />
+		<axis xyz="0 0 -1" />
+		<limit lower="-3" upper="3" effort="0.4" velocity="1" />
+	</joint>
+	<link name="gripper_1">
+		<inertial>
+			<origin xyz="0.053243 -0.0027537 -4.3021E-16" rpy="0 0 0" />
+			<mass value="0.05885" />
+			<inertia ixx="1.1454E-05" ixy="1.2413E-05" ixz="-3.1325E-19" iyy="7.0749E-05" iyz="-1.7258E-19" izz="7.7911E-05" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/gripper_1.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/gripper_1.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="gripper_joint_1" type="revolute">
+		<origin xyz="0.054465 0 0.127" rpy="1.5708 -1.5708 0" />
+		<parent link="link_6" />
+		<child link="gripper_1" />
+		<axis xyz="0 0 -1" />
+		<limit lower="-0.7" upper="0.7" effort="0.3" velocity="1" />
+	</joint>
+	<link name="gripper_2">
+		<inertial>
+			<origin xyz="0.0507 -0.010307 -5.5511E-17" rpy="0 0 0" />
+			<mass value="0.05885" />
+			<inertia ixx="1.6302E-05" ixy="2.0122E-05" ixz="4.1406E-19" iyy="6.5008E-05" iyz="-1.0205E-21" izz="7.7018E-05" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/gripper_2.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/gripper_2.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="gripper_joint_2" type="revolute">
+		<origin xyz="-0.025549 0.044252 0.127" rpy="0.5236 -1.5708 3.14159265359" />
+		<parent link="link_6" />
+		<child link="gripper_2" />
+		<axis xyz="0 0 -1" />
+		<limit lower="-0.7" upper="0.7" effort="0.3" velocity="1" />
+	</joint>
+	<link name="gripper_3">
+		<inertial>
+			<origin xyz="0.053209 -0.0028886 2.7756E-16" rpy="0 0 0" />
+			<mass value="0.05885" />
+			<inertia ixx="1.152E-05" ixy="1.2561E-05" ixz="1.3169E-19" iyy="7.067E-05" iyz="5.2669E-20" izz="7.7897E-05" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/gripper_3.stl" />
+			</geometry>
+			<material name="">
+				<color rgba="0.79216 0.81961 0.93333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://catarm/meshes/gripper_3.stl" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="gripper_joint_3" type="revolute">
+		<origin xyz="-0.027233 -0.047168 0.127" rpy="2.618 -1.5708 3.14159265359" />
+		<parent link="link_6" />
+		<child link="gripper_3" />
+		<axis xyz="0 0 -1" />
+		<limit lower="-0.7" upper="0.7" effort="0.3" velocity="1" />
+	</joint>
+<gazebo reference="base_link">
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="link_1">
+  <material>Gazebo/Black</material>
+</gazebo>
+ <gazebo reference="link_2">
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="link_3">
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="link_4">
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="link_5">
+  <material>Gazebo/Black</material>
+</gazebo>
+<gazebo reference="link_6">
+  <material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="gripper_1">
+<material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="gripper_2">
+<material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="gripper_3">
+<material>Gazebo/Orange</material>
+</gazebo>
+
+<transmission name="trans1">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_1">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+ </transmission>
+<transmission name="trans2">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_2">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_2">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+</transmission>
+<transmission name="trans3">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_3">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_3">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+</transmission>
+<transmission name="trans4">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_4">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_4">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+</transmission> 
+<transmission name="trans5">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_5">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_5">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+</transmission>
+<transmission name="trans6">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="joint_6">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_6">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+</transmission>
+ 
+ <transmission name="trans7">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="gripper_joint_1">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_7">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+</transmission>	
+<transmission name="trans8">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="gripper_joint_2">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_7">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+</transmission>	
+<transmission name="trans9">
+    <type>transmission_interface/SimpleTransmission</type>
+     <joint name="gripper_joint_3">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </joint>
+     <actuator name="motor_7">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+     </actuator>
+</transmission>	
+<joint name="rgbd_camera_joint" type="fixed">
+    <origin rpy="0 1.308996939 0" xyz="0.1 0 1.5"/>
+    <parent link="base_link"/>
+    <child link="rgbd_camera_link"/>
+  </joint>
+  <link name="rgbd_camera_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.00936000000 -0.00003000000 -0.00273000000"/>
+      <mass value="0.21970000000"/>
+      <inertia ixx="0.00000429247" ixy="0.00000000000" ixz="0.00000002565" iyy="0.00000008027" iyz="0.00000000000" izz="0.00000427339"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://catarm/meshes/sensors/xtion_pro_live/xtion_pro_live.dae"/>
+      </geometry>
+    </visual>
+  </link>
+<joint name="rgbd_camera_optical_joint" type="fixed">
+    <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="rgbd_camera_link"/>
+    <child link="rgbd_camera_optical_frame"/>
+  </joint>
+  <link name="rgbd_camera_optical_frame">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+  <!-- Depth sensor frames -->
+  <joint name="rgbd_camera_depth_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 0.049 0.0"/>
+    <parent link="rgbd_camera_link"/>
+    <child link="rgbd_camera_depth_frame"/>
+  </joint>
+  <link name="rgbd_camera_depth_frame">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+  <joint name="rgbd_camera_depth_optical_joint" type="fixed">
+    <origin rpy="-1.57079632679 0.0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="rgbd_camera_depth_frame"/>
+    <child link="rgbd_camera_depth_optical_frame"/>
+  </joint>
+  <link name="rgbd_camera_depth_optical_frame">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+<joint name="rgbd_camera_rgb_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 0.022 0.0"/>
+    <parent link="rgbd_camera_link"/>
+    <child link="rgbd_camera_rgb_frame"/>
+  </joint>
+  <link name="rgbd_camera_rgb_frame">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+  <joint name="rgbd_camera_rgb_optical_joint" type="fixed">
+    <origin rpy="-1.57079632679 0.0 -1.57079632679" xyz="0 0 0"/>
+    <parent link="rgbd_camera_rgb_frame"/>
+    <child link="rgbd_camera_rgb_optical_frame"/>
+  </joint>
+  <link name="rgbd_camera_rgb_optical_frame">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="0.00001" ixy="0" ixz="0" iyy="0.00001" iyz="0" izz="0.00001"/>
+    </inertial>
+  </link>
+
+  <gazebo reference="rgbd_camera_link"> 
+    <sensor type="camera" name="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera</cameraName>
+        <imageTopicName>camera/image_raw</imageTopicName>
+        <cameraInfoTopicName>camera/camera_info</cameraInfoTopicName>
+        <frameName>rgbd_camera_optical_frame</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+
+    <sensor name="depth_camera" type="depth">
+      <always_on>true</always_on>
+      <update_rate>6.0</update_rate>
+      <camera>
+        <horizontal_fov>1.01229096616</horizontal_fov>
+        <image>
+          <format>R8G8B8</format>
+          <width>320</width>
+          <height>240</height>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>4.0</far>
+        </clip>
+      </camera>
+      <plugin filename="libgazebo_ros_openni_kinect.so" name="rgbd_camera_frame_controller">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>6.0</updateRate>
+        <cameraName>depth_camera</cameraName>
+        <imageTopicName>depth_camera/image_raw</imageTopicName>
+        <cameraInfoTopicName>depth_camera/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>depth/points</pointCloudTopicName>
+        <frameName>rgbd_camera_optical_frame</frameName>
+        <pointCloudCutoff>0.05</pointCloudCutoff>
+        <pointCloudCutoffMax>5</pointCloudCutoffMax>
+        <rangeMax>4.0</rangeMax>
+          <distortionK1>0.00000001</distortionK1>
+          <distortionK2>0.00000001</distortionK2>
+          <distortionK3>0.00000001</distortionK3>
+          <distortionT1>0.00000001</distortionT1>
+          <distortionT2>0.00000001</distortionT2>
+      </plugin>
+    </sensor>
+
+   </gazebo>
+
+
+  <!-- ros_control plugin -->
+<gazebo>
+   <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/catarm</robotNamespace>
+ </plugin>
+</gazebo>
+</robot>

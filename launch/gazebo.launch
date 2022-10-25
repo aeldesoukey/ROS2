@@ -1,0 +1,11 @@
+<launch>
+ <arg name="debug" value="false"/>
+ <arg name="headless" value="false"/>
+ <arg name="paused" value="false"/>
+ <arg name="use_sim_time" value="true"/>
+
+ <include file="$(find catarm)/launch/display.launch"/>
+ <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+ <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
+  output="screen" args="-urdf -model catarm -param robot_description -z 0.02"/>
+</launch>
